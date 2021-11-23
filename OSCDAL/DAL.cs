@@ -127,7 +127,7 @@ namespace OSCDAL
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
 
 
-                string query = $"select productid,title,price,quantity from product where  name ='{cr.Check}';";
+                string query = $"select productid,name,price,quantity from product where  name ='{cr.Check}';";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
                 
@@ -269,7 +269,7 @@ namespace OSCDAL
                    ConnectionStrings["OnlineShoppingCart"].ConnectionString;
                 //SEtting up the command text for the command object
                 Customer c = new Customer();
-                string query = $"SELECT[SNO.],productname,quantity,price FROM dbo.cart WHERE username = '{c.Username}'";
+                string query = $"SELECT productname,quantity,price FROM dbo.cart WHERE username = '{c.Username}'";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 
                 //sqlCmdObj.CommandText = @"SELECT [SNO.],productname,quantity,price FROM dbo.cart WHERE username='{}'";
@@ -289,10 +289,10 @@ namespace OSCDAL
                 {
                     lstCart.Add(new ADDCart()
                     {
-                        Sno = sqlDataReaderObj2[0].ToString(),
-                        Productname = sqlDataReaderObj2[1].ToString(),
-                        Price = sqlDataReaderObj2[2].ToString(),
-                        Quantity = sqlDataReaderObj2[3].ToString(),
+                        
+                        Productname = sqlDataReaderObj2[0].ToString(),
+                        Price = sqlDataReaderObj2[1].ToString(),
+                        Quantity = sqlDataReaderObj2[2].ToString(),
 
 
                     });
@@ -321,7 +321,7 @@ namespace OSCDAL
                 sqlConObj.ConnectionString = ConfigurationManager.
                    ConnectionStrings["OnlineShoppingCart"].ConnectionString;
                 //SEtting up the command text for the command object
-                sqlCmdObj.CommandText = @"SELECT productid,title,price,quantity FROM dbo.product";
+                sqlCmdObj.CommandText = @"SELECT productid,name,price,quantity FROM dbo.product";
                 sqlCmdObj.Connection = sqlConObj;
 
                 //Execute

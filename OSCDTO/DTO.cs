@@ -35,7 +35,7 @@ namespace OSCDTO
     }
     public class ADDCart
     {
-        public string Sno { get; set; }
+
         public string Username { get; set; }
         public string Productid { get; set; }
         public string Productname { get; set; }

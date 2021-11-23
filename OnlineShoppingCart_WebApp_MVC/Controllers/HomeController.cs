@@ -12,10 +12,32 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
     public class HomeController : Controller
     {
         BL bl = new BL();
+
         
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+
+                List<Product> lstOfProduct = bl.GetAllProductDetails();
+                List<UserViewProductsModel> lstOfFinalProduct = new List<UserViewProductsModel>();
+                foreach (Product p in lstOfProduct)
+                {
+                    lstOfFinalProduct.Add(new UserViewProductsModel()
+                    {
+                        Name = p.Name,
+                        Price = p.Price,
+                        Quantity = p.Quantity
+                    });
+                }
+                return View(lstOfFinalProduct);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public ActionResult About()
@@ -117,15 +139,16 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
         {
             try
             {
+
                 List<Product> lstOfProduct = bl.GetAllProductDetails();
                 List<UserViewProductsModel> lstOfFinalProduct = new List<UserViewProductsModel>();
-                foreach (var product in lstOfProduct)
+                foreach (Product p in lstOfProduct)
                 {
                     lstOfFinalProduct.Add(new UserViewProductsModel()
                     {
-                        Name = product.Name,
-                        Price = product.Price,
-                        Quantity = product.Quantity
+                        Name = p.Name,
+                        Price = p.Price,
+                        Quantity = p.Quantity
                     });
                 }
                 return View(lstOfFinalProduct);
