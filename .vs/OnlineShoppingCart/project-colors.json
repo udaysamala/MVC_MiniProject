@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "77a814fd-2baf-4c48-bfc5-776ca68588ae": {
+      "ProjectGuid": "77a814fd-2baf-4c48-bfc5-776ca68588ae",
+      "DisplayName": "OnlineShoppingCart_WebApp_MVC",
+      "ColorIndex": 0
+    },
+    "30ae861e-8294-41e5-9cd4-814b8a8db681": {
+      "ProjectGuid": "30ae861e-8294-41e5-9cd4-814b8a8db681",
+      "DisplayName": "OnlineShoppingCart_WEBAPI",
+      "ColorIndex": 1
+    },
+    "2ab7dedb-f8a7-45e2-9851-5cdcbf38c194": {
+      "ProjectGuid": "2ab7dedb-f8a7-45e2-9851-5cdcbf38c194",
+      "DisplayName": "OSCBL",
+      "ColorIndex": 2
+    },
+    "c45cf57f-1b1b-43e0-8714-311f41b5817d": {
+      "ProjectGuid": "c45cf57f-1b1b-43e0-8714-311f41b5817d",
+      "DisplayName": "OSCDTO",
+      "ColorIndex": 3
+    },
+    "15ccf02e-811b-43ea-831f-84bb7ea16f86": {
+      "ProjectGuid": "15ccf02e-811b-43ea-831f-84bb7ea16f86",
+      "DisplayName": "OnlineShoppingCart_WEBAPITests",
+      "ColorIndex": 4
+    },
+    "0e0563c4-a76b-4c2d-8e28-9ea778dad813": {
+      "ProjectGuid": "0e0563c4-a76b-4c2d-8e28-9ea778dad813",
+      "DisplayName": "OSCDAL",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}
