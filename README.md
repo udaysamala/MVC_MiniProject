@@ -23,14 +23,14 @@
    <tr>
     <td>40019973</td>
     <td>Udaykumar Samala</td>
-    <td >MVC-Login/SignUp & Home Design Page</td>
+    <td >MVC-Login/SignUp & Home Layout Pages</td>
     <td></td>
     
   </tr>
    <tr>
     <td>40018648</td>
     <td>Ch.Sowmya</td>
-    <td>MVC-Admin-Add Product Items & Delete Products Page</td>
+    <td>MVC-Admin-Add Product Items & Delete Products Pages</td>
     <td></td>
   </tr>
    <tr>
