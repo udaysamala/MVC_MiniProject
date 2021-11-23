@@ -1,10 +1,9 @@
-# ASP.NetMiniProject-Online Shopping Cart
+# MVC-MiniProject-Online Shopping Cart
 ## Folder Structure:
 
 | Folder | Description |
 | :---: | :---: |
-| `OnlineShoppingCart_WEBAPI` | Web Application  |
-| `OnlineShoppingCart_WEBAPITests` | Using MockTest |
+| `OnlineShoppingCart_WebApp_MVC` | Web Application  |
 | `OSCBL` | Business Logical Layer |
 | `OSCDAL` | Data Access Layer |
 | `OSCDTO` | Data Transfer objects |
@@ -24,32 +23,32 @@
    <tr>
     <td>40019973</td>
     <td>Udaykumar Samala</td>
-    <td >Web API-Login Features-registration,login & View Products</td>
+    <td >MVC-Login/SignUp & Home Design Page</td>
     <td></td>
     
   </tr>
    <tr>
     <td>40018648</td>
     <td>Ch.Sowmya</td>
-    <td>Web API-Add Product Items & Delete Products</td>
+    <td>MVC-Admin-Add Product Items & Delete Products Page</td>
     <td></td>
   </tr>
    <tr>
     <td>40018961</td>
     <td>Naveen Kumar Ready Yerram</td>
-    <td>MockTest- Login & View Products</td>
+    <td>MVC-User-View Products Page</td>
     <td></td>
   </tr>
    <tr>
     <td>40018978</td>
     <td>Golla Mani Varma</td>
-    <td>Web API-Adding To Cart & Delete From Cart</td>
+    <td>MVC User-Adding To Cart Page</td>
     <td></td>
   </tr>
    <tr>
     <td>40018976</td>
     <td>Gorthi Ravi Teja</td>
-    <td>MockTest- AddProducts & DeleteProducts</td>
+    <td>MVC-User-Delete From Cart Page</td>
     <td></td>
   </tr>
    
