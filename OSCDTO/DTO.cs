@@ -16,12 +16,10 @@ namespace OSCDTO
         public string Mobile { get ; set ; }
         public string Name { get; set ; }
     }
-    public class Admin{
-        string user ="admin";
-        string pass = "admin";
+    public class Admin { 
 
-        public string User { get => user; set => user = value; }
-        public string Pass { get => pass; set => pass = value; }
+        public string User { get ; set; }
+        public string Pass { get ; set ; }
     }
     public class Product
     {

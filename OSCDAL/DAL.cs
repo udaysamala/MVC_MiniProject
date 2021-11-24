@@ -96,11 +96,7 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-
-
-
-
-                string query = $"insert into dbo.product(productid,Name,summary,price,discount,quantity) values('{p.ProductId}','{p.Name}','{p.Summary}','{p.Price}','{p.Discount}','{p.Quantity}')";
+                string query = $"insert into dbo.product(Name,summary,price,discount,quantity) values('{p.Name}','{p.Summary}','{p.Price}','{p.Discount}','{p.Quantity}')";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
                 int insertedRows = cmd.ExecuteNonQuery();
@@ -127,7 +123,7 @@ namespace OSCDAL
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
 
 
-                string query = $"select productid,name,price,quantity from product where  name ='{cr.Check}';";
+                string query = $"select productid,name,price,quantity from product where  name ='{cr.Check};";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
                 
@@ -320,15 +316,9 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                    ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-                //SEtting up the command text for the command object
-                sqlCmdObj.CommandText = @"SELECT productid,name,price,quantity FROM dbo.product";
+                sqlCmdObj.CommandText = @"SELECT id,name,price,quantity,summary,discount FROM dbo.product";
                 sqlCmdObj.Connection = sqlConObj;
-
-                //Execute
-                sqlConObj.Open();//COnnection should be open not command
-                //Connected Architecture
-                //Reads on record at a time
-                //Expects connection be open until all the records are read completely.
+                sqlConObj.Open();
                 sqlDataReaderObj = sqlCmdObj.ExecuteReader();
                 List<Product> lstPro1 = new List<Product>();
 
@@ -343,6 +333,8 @@ namespace OSCDAL
                         Name = sqlDataReaderObj[1].ToString(),
                         Price = sqlDataReaderObj[2].ToString(),
                         Quantity = sqlDataReaderObj[3].ToString(),
+                        Summary = sqlDataReaderObj[4].ToString(),
+                        Discount=sqlDataReaderObj[5].ToString(),
 
 
                     });

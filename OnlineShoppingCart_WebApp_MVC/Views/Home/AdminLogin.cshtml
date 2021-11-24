@@ -1,0 +1,74 @@
+﻿@model OnlineShoppingCart_WebApp_MVC.Models.AdminLoginM
+
+@{
+    ViewBag.Title = "AdminLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AdminLogin</h2>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container-fluid">
+        <br />
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="container-fluid">
+                    <center>
+                        <h1 style="font-family:Century Gothic">Online ShoppingCart </h1>
+                        <img src="~/Images/cart1.png" style="width:50%">
+                    </center>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                @using (Html.BeginForm("AdminLogin", "Home"))
+                {
+                    <div class="container-fluid">
+                        <center>
+                            <br />
+                            <div style="border:1px solid lightgrey;background-color:white;border-radius:30px;padding:50px; box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.6), 0 1px 10px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        @Html.TextBoxFor(model => model.User, new { @class = "form-control", @placeholder = " Username", @style = "background-color:whitesmoke" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        @Html.ValidationMessageFor(model => model.User, null, new { @style = "color:indianred" })
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        @Html.PasswordFor(model => model.Pass, new { @class = "form-control", @placeholder = " Password", @style = "background-color:whitesmoke" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        @Html.ValidationMessageFor(model => model.Pass, null, new { @style = "color:indianred" })
+                                    </div>
+
+                                </div>
+
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <input type="submit" style="width:80px;color:dimgray" value="Login" class="btn btn-default" />
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </center>
+                    </div>
+                }
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</div>

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace OnlineShoppingCart_WebApp_MVC.Controllers
 {
     public class HomeController : Controller
     {
         BL bl = new BL();
+       
 
         
         public ActionResult Index()
@@ -75,7 +77,8 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 
                 if (result1 == 1)
                 {
-                    return View("UserHome");
+                    return RedirectToAction("UserHome");
+                   
                 }
                 else
                 {
@@ -135,8 +138,10 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
 
 
         }
+        
         public ActionResult UserHome()
         {
+           
             try
             {
 
@@ -160,6 +165,171 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 throw ex;
             }
         }
+        public ActionResult UserCart()
+        {
+            try
+            {
+
+                List<ADDCart> lst = bl.FetchCart();
+                List<UserCart> finallist = new List<UserCart>();
+                foreach (ADDCart a in lst)
+                {
+                    finallist.Add(new UserCart()
+                    {
+                        Productname=a.Productname,
+                        Price = a.Price,
+                        Quantity = a.Quantity
+                    });
+                }
+                return View(finallist);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public ActionResult UserAddCart(AddCart cm)
+        {
+            try
+            {
+                ADDCart c = new ADDCart()
+                {
+                    Username=cm.Username,
+                    Productid=cm.Productid,
+                    Productname=cm.Productname,
+                    Price=cm.Price,
+                    Quantity=cm.Quantity,
+                    Check=cm.Check,
+
+                };
+
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminLogin(AdminLoginM alm)
+        {
+            ViewBag.Message = "Your Login page.";
+            try
+            {
+               Admin a = new Admin()
+                {
+
+                    User = alm.User,
+                    Pass = alm.Pass,
+
+                };
+
+                int result1 = bl.checkadminlogin(a);
+
+                if (result1 == 1)
+                {
+                    return RedirectToAction("AdminViewProduct");
+
+                }
+                else
+                {
+
+                    return View("Error");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+
+            }
+
+
+        }
+        public ActionResult AdminViewProduct()
+        {
+            try
+            {
+
+                List<Product> lst = bl.AdminProductDetails();
+                List<AdmiViewProducts> finallist = new List<AdmiViewProducts>();
+                foreach(Product p in lst)
+                {
+                    finallist.Add(new AdmiViewProducts()
+                    {
+                        ProductId=p.ProductId,
+                        Name=p.Name,
+                        Quantity=p.Quantity,
+                        Summary = p.Summary,
+                        Discount = p.Discount,
+                        Price =p.Price,
+                       
+
+                        
+                    });
+                }
+
+                return View(finallist);
+
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error");
+            }
+
+        }
+        public ActionResult AdminAddProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminAddProduct(AdminAddProduct ap)
+        {
+            try
+            {
+                Product p = new Product()
+                {
+                    
+                    Name=ap.Name,
+                    Price = ap.Price,
+                    Discount=ap.Discount,
+                    Quantity=ap.Quantity,
+                    Summary = ap.Summary,
+                };
+                int result= bl.InsertintoProductTable(p);
+                if (result == 1)
+                {
+                    return View("AdminViewProduct");
+                }
+                else
+                {
+                    return View("Error");
+                }
+
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error");
+            }
+
+        }
+
+
 
     }
 }

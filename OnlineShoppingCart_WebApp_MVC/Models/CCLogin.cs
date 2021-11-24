@@ -9,7 +9,6 @@ namespace OnlineShoppingCart_WebApp_MVC.Models
     public class CCLogin
     {
         [Required]
-      
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }

@@ -25,8 +25,18 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="~/Home/Login"><span class="glyphicon glyphicon-user"></span>Hello, Sign in</a></li>
-                    
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn"><span class="glyphicon glyphicon-user"></span>Hello, Sign in</button>
+                            <div class="dropdown-content">
+                                <a href="Home/AdminLogin">Admin</a>
+                                <a href="Home/Login">Users</a>
+                               
+                            </div>
+                        </div>
+                    </li>
+                   
+
                 </ul>
             </div>
         </div>
@@ -35,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Online ShoppingCart ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Online ShoppingCart</p>
         </footer>
     </div>
 
@@ -43,4 +53,55 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+<style>
+    /* Style The Dropdown Button */
+    .dropbtn {
+        background-color: #202020;
+        color: #707070;
+        padding: 12px;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+                background-color: #303030;
+                color: #E8E8E8;
+            }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown:hover .dropbtn {
+        color: #E8E8E8;
+    }
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    
+</style>
 </html>

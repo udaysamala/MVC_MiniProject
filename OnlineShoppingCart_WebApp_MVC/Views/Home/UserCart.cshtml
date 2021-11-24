@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OnlineShoppingCart_WebApp_MVC.Models.UserCart>
+
+@{
+    ViewBag.Title = "UserCart";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>UserCart</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Productname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Productname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.Productname }) |
+           
+            @Html.ActionLink("Proceed", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
