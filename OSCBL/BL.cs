@@ -140,5 +140,36 @@ namespace OSCBL
             }
 
         }
+        public List<Product> UserSearchedProduct(Product p)
+        {
+            try
+            {
+
+                List<Product> results = dalObj.UserFetchSearchedProduct(p);
+                return results;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public List<Product> AdminSearchedProduct(Product p)
+        {
+            try
+            {
+
+                List<Product> results = dalObj.AdminFetchSearchedProduct(p);
+                return results;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
     }
 }

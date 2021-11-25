@@ -16,20 +16,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Online ShoppingCart", "#", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Online ShoppingCart", "AdminViewProduct", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "#")</li>
-                    <li>@Html.ActionLink("View Products", "#")</li>
-                    <li>@Html.ActionLink("Add New Product", "#")</li>
-                    <li>@Html.ActionLink("Delete Product", "#")</li>
+                    <li>@Html.ActionLink("Home", "AdminViewProduct")</li>
+                    <li>@Html.ActionLink("View Products", "AdminViewProduct")</li>
+                    <li>@Html.ActionLink("Add New Product", "AdminAddProduct")</li>
+                    <li>@Html.ActionLink("Delete Product", "AdminDeleteProduct")</li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <!--
-                    <li><span class="glyphicon glyphicon-user"></span></li>--->
+                    <li><a href="Index"><span class="glyphicon glyphicon-log-out"></span>Log-out</a></li>
                     
                 </ul>
             </div>

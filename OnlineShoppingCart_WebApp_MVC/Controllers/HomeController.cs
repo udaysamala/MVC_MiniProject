@@ -90,7 +90,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             }
             catch (Exception ex)
             {
-                return View("Error");
+                throw ex;
 
             }
 
@@ -132,7 +132,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             }
             catch (Exception ex)
             {
-                return View("Error");
+                throw ex;
 
             }
 
@@ -188,6 +188,53 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             {
 
                 throw ex;
+            }
+
+        }
+        public ActionResult UserSearchProduct()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult UserSearchedProduct(SearchProduct spm)
+        {
+            try
+            {
+                Product pro = new Product()
+                {
+                    SearchProduct=spm.Producttosearch,
+
+                };
+
+                List<Product> lst = bl.UserSearchedProduct(pro);
+                
+                List<UserViewProductsModel> lstOfFinalProduct = new List<UserViewProductsModel>();
+                foreach (Product p in lst)
+                {
+                    lstOfFinalProduct.Add(new UserViewProductsModel()
+                    {
+                        Name = p.Name,
+                        Price = p.Price,
+                        Quantity = p.Quantity
+                    });
+                }
+                if (lst != null)
+                {
+                    return View(lstOfFinalProduct);
+                }
+                else
+                {
+                    ViewBag.alert = "Sorry, the item is out of stock..";
+                    return View("UserSearchProduct");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
             }
 
         }
@@ -251,7 +298,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             }
             catch (Exception ex)
             {
-                return View("Error");
+                throw ex;
 
             }
 
@@ -274,9 +321,6 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                         Summary = p.Summary,
                         Discount = p.Discount,
                         Price =p.Price,
-                       
-
-                        
                     });
                 }
 
@@ -286,7 +330,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             catch (Exception ex)
             {
 
-                return View("Error");
+                throw ex;
             }
 
         }
@@ -318,14 +362,65 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                     return View("Error");
                 }
 
-                
-
             }
             catch (Exception ex)
             {
 
-                return View("Error");
+                throw ex;
             }
+
+        }
+        public ActionResult AdminSearchProduct()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult AdminSearchedProduct(SearchProduct spm)
+        {
+            try
+            {
+                Product pro = new Product()
+                {
+                    SearchProduct = spm.Producttosearch,
+
+                };
+
+                List<Product> lst = bl.AdminSearchedProduct(pro);
+
+                List<AdmiViewProducts> lstOfFinalProduct = new List<AdmiViewProducts>();
+                foreach (Product p in lst)
+                {
+                    lstOfFinalProduct.Add(new AdmiViewProducts()
+                    {
+                       ProductId = p.ProductId,
+                        Name = p.Name,
+                        Price = p.Price,
+                        Quantity = p.Quantity
+                    });
+                }
+                if (lst != null)
+                {
+                    return View(lstOfFinalProduct);
+                }
+                else
+                {
+                    ViewBag.alert = "Sorry, the item is out of stock..";
+                    return View("UserSearchProduct");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+        public ActionResult AdminDeleteProduct()
+        {
+            return View();
 
         }
 

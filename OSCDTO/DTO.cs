@@ -15,6 +15,7 @@ namespace OSCDTO
        
         public string Mobile { get ; set ; }
         public string Name { get; set ; }
+      
     }
     public class Admin { 
 
@@ -30,6 +31,7 @@ namespace OSCDTO
         public string Discount { get; set ; }
         public string Quantity { get ; set ; }
         public string Deleteproduct { get ; set; }
+        public string SearchProduct { get; set; }
     }
     public class ADDCart
     {

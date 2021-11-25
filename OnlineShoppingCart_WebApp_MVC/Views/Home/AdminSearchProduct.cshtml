@@ -1,0 +1,42 @@
+﻿@model OnlineShoppingCart_WebApp_MVC.Models.SearchProduct
+
+@{
+    ViewBag.Title = "AdminSearchProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AdminSearchProduct</h2>
+
+
+<form action="AdminSearchedProduct" name="Form" method="post" onsubmit="return validate()">
+    <div class="col-sm-5" style="text-align:right;">
+        <div class="row display-flex">
+            @Html.EditorFor(model => model.Producttosearch, new { htmlAttributes = new { @class = "form-control", @id = "search", @name = "search", @placeholder = "Search..", @style = "max-width:100%" } })
+            @Html.ValidationMessageFor(model => model.Producttosearch, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <div class="col-sm-1">
+        <span class="input-group-btn">
+            <button class="btn btn-search" type="submit" style="border-radius"><i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp; Search</button>
+        </span>
+    </div>
+    <br />
+</form>
+<script>
+    function validate() {
+
+        var a = document.forms["Form"]["search"].value;
+        if (a == null || a == "") {
+            alert("Please enter a search item in the search box..");
+            return false;
+        }
+        return true;
+
+
+    }
+
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

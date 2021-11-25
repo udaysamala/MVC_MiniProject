@@ -131,6 +131,7 @@
     <Compile Include="Models\CCLogin.cs" />
     <Compile Include="Models\CSignup.cs" />
     <Compile Include="Models\UserCart.cs" />
+    <Compile Include="Models\SearchProduct.cs" />
     <Compile Include="Models\UserViewProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,6 +182,10 @@
     <Content Include="Views\Home\AdminViewProduct.cshtml" />
     <Content Include="Views\Home\AdminAddProduct.cshtml" />
     <Content Include="Views\Home\AdminLogin.cshtml" />
+    <Content Include="Views\Home\UserSearchProduct.cshtml" />
+    <Content Include="Views\Home\UserSearchedProduct.cshtml" />
+    <Content Include="Views\Home\AdminSearchProduct.cshtml" />
+    <Content Include="Views\Home\AdminSearchedProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

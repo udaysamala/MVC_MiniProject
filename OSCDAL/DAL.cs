@@ -68,10 +68,6 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-                
-         
-               
-
                 string query = $"insert into dbo.users(name,mobile,email, Password,registeredAt) values('{c.Name}','{c.Mobile}','{c.Username}','{c.Password}',getdate())";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
@@ -168,12 +164,6 @@ namespace OSCDAL
                 }
 
 
-                
-
-                
-                
-                
-
             }
 
             catch (Exception e) { throw e; }
@@ -185,10 +175,6 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-
-
-
-
                 string query = $"DELETE FROM product WHERE productId={p.Deleteproduct};";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
@@ -214,15 +200,10 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                    ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-                //SEtting up the command text for the command object
                 sqlCmdObj.CommandText = @"SELECT Name,price,quantity FROM dbo.product";
                 sqlCmdObj.Connection = sqlConObj;
 
-                //Execute
-                sqlConObj.Open();//COnnection should be open not command
-                //Connected Architecture
-                //Reads on record at a time
-                //Expects connection be open until all the records are read completely.
+                sqlConObj.Open();
                 sqlDataReaderObj = sqlCmdObj.ExecuteReader();
                 List<Product> lstPro = new List<Product>();
                 
@@ -263,19 +244,10 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                    ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-                //SEtting up the command text for the command object
                 Customer c = new Customer();
                 string query = $"SELECT productname,quantity,price FROM dbo.cart WHERE username = '{c.Username}'";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
-                
-                //sqlCmdObj.CommandText = @"SELECT [SNO.],productname,quantity,price FROM dbo.cart WHERE username='{}'";
-                //sqlCmdObj.Connection = sqlConObj;
-
-                //Execute
-                sqlConObj.Open();//COnnection should be open not command
-                //Connected Architecture
-                //Reads on record at a time
-                //Expects connection be open until all the records are read completely.
+                sqlConObj.Open();
                 sqlDataReaderObj2 = cmd.ExecuteReader();
                 List<ADDCart> lstCart = new List<ADDCart>();
 
@@ -336,11 +308,93 @@ namespace OSCDAL
                         Summary = sqlDataReaderObj[4].ToString(),
                         Discount=sqlDataReaderObj[5].ToString(),
 
-
                     });
 
                 }
                 return lstPro1;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+                sqlConObj.Close();
+            }
+
+        }
+        public List<Product> UserFetchSearchedProduct(Product p)
+        {
+
+            try
+            {
+                sqlConObj.ConnectionString = ConfigurationManager.
+                   ConnectionStrings["OnlineShoppingCart"].ConnectionString;
+                string query = $"SELECT name,price,quantity FROM dbo.product WHERE name like '{p.SearchProduct}%'";
+
+                SqlCommand cmd = new SqlCommand(query, sqlConObj);
+                sqlConObj.Open();
+                sqlDataReaderObj = cmd.ExecuteReader();
+                List<Product> lstPro = new List<Product>();
+
+                Product newepartObj = new Product();
+
+                while (sqlDataReaderObj.Read())
+                {
+                    lstPro.Add(new Product()
+                    {
+                        Name = sqlDataReaderObj[0].ToString(),
+                        Price = sqlDataReaderObj[1].ToString(),
+                        Quantity = sqlDataReaderObj[2].ToString(),
+
+                    });
+
+                }
+                return lstPro;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+                sqlConObj.Close();
+            }
+
+        }
+        public List<Product> AdminFetchSearchedProduct(Product p)
+        {
+
+            try
+            {
+                sqlConObj.ConnectionString = ConfigurationManager.
+                   ConnectionStrings["OnlineShoppingCart"].ConnectionString;
+                string query = $"SELECT id,name,price,quantity FROM dbo.product WHERE name like '{p.SearchProduct}%' or id like '{p.SearchProduct}%'";
+                SqlCommand cmd = new SqlCommand(query, sqlConObj);
+                sqlConObj.Open();
+                sqlDataReaderObj = cmd.ExecuteReader();
+                List<Product> lstPro = new List<Product>();
+
+                Product newepartObj = new Product();
+
+                while (sqlDataReaderObj.Read())
+                {
+                    lstPro.Add(new Product()
+                    {
+                        ProductId= sqlDataReaderObj[0].ToString(),
+                        Name = sqlDataReaderObj[1].ToString(),
+                        Price = sqlDataReaderObj[2].ToString(),
+                        Quantity = sqlDataReaderObj[3].ToString(),
+
+                    });
+                }
+                return lstPro;
 
             }
             catch (Exception ex)
