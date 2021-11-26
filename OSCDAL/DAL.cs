@@ -112,6 +112,20 @@ namespace OSCDAL
         }
         public int InsertintoCart(ADDCart cr)
         {
+            //SqlConObj.ConnectionString = ConfigurationManager.ConnectionStrings["AdvWorksADOConStr"].ConnectionString;
+            //SqlCmdObj.CommandText = @"usp_InsertIntoProduct";
+            //SqlCmdObj.CommandType = CommandType.StoredProcedure;
+            //SqlCmdObj.Connection = SqlConObj;
+            //SqlCmdObj.Parameters.AddWithValue("@ProductName", dto.ProductName);
+            //SqlCmdObj.Parameters.AddWithValue("@ProductGroupName", dto.ProductGroupName);
+            //SqlCmdObj.Parameters.AddWithValue("@ProductModifiedDate", DateTime.Now);
+            //SqlParameter sqlpm = new SqlParameter();
+            //sqlpm.Direction = ParameterDirection.ReturnValue;
+            //sqlpm.SqlDbType = SqlDbType.Int;
+            //SqlCmdObj.Parameters.Add(sqlpm);
+            //SqlConObj.Open();
+            //SqlCmdObj.ExecuteNonQuery();
+            //return Convert.ToInt32(sqlpm.Value);
             string qcheck="";
             try
             {
