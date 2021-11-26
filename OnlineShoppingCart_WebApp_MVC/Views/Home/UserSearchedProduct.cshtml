@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<OnlineShoppingCart_WebApp_MVC.Models.UserViewProductsModel>
 
 @{
-    ViewBag.Title = "UserSearchedProduct";
+    ViewBag.Title = "Search Result";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+<br />
+<h4>Search Result</h4>
 
-<h2>UserSearchedProduct</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -35,11 +33,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+        
     </tr>
 }
 

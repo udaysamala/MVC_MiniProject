@@ -175,7 +175,7 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-                string query = $"DELETE FROM product WHERE productId={p.Deleteproduct};";
+                string query = $"DELETE FROM product WHERE Id={p.Deleteproduct} or name={p.Deleteproduct};";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
                 int insertedRows = cmd.ExecuteNonQuery();

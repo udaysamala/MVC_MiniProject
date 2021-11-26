@@ -13,9 +13,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
     public class HomeController : Controller
     {
         BL bl = new BL();
-       
 
-        
         public ActionResult Index()
         {
             try
@@ -406,7 +404,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 else
                 {
                     ViewBag.alert = "Sorry, the item is out of stock..";
-                    return View("UserSearchProduct");
+                    return View();
 
                 }
 
@@ -423,8 +421,36 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             return View();
 
         }
+        [HttpPost]
+        public ActionResult DeleteProduct(AdminDeleteProduct dp)
+        {
+            try
+            {
+                Product p = new Product()
+                {
 
+                    Deleteproduct = dp.Deleteproduct,
+                   
+                };
+                int result = bl.DeleteProductItem(p);
+                if (result == 1)
+                {
+                    return View("AdminViewProduct");
+                }
+                else
+                {
+                    return View("Error");
+                }
 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        
 
     }
 }

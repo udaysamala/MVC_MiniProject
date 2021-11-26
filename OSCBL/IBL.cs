@@ -18,6 +18,8 @@ namespace OSCBL
 		List<Product> GetAllProductDetails();
 		List<Product> AdminProductDetails();
 		List<ADDCart> FetchCart();
+		List<Product> UserSearchedProduct(Product p);
+		List<Product> AdminSearchedProduct(Product p);
 
 	}
 }

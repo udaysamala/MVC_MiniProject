@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<OnlineShoppingCart_WebApp_MVC.Models.AdmiViewProducts>
 
 @{
-    ViewBag.Title = "AdminSearchedProduct";
+    ViewBag.Title = "SearchResult";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<br />
+<h4>Search Result</h4>
 
-<h2>AdminSearchedProduct</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -56,7 +54,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new {  id=item.Name })
         </td>
     </tr>
 }

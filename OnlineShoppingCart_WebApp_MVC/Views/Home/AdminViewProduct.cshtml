@@ -1,29 +1,13 @@
 ﻿@model IEnumerable<OnlineShoppingCart_WebApp_MVC.Models.AdmiViewProducts>
 
 @{
-  
+    ViewBag.Title = "ViewProducts";
+
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Products</h2>
-<form action="/Search/Partial" name="Form" method="post" onsubmit="return validate()">
-    <div class="col-sm-5" style="text-align:right;">
-        <div class="row display-flex">
-            <input type="text" class="form-control" id="search" name="search" placeholder="Search.." style="max-width:100%" />
-        </div>
-
-    </div>
-    <div class="col-sm-1">
-        <span class="input-group-btn">
-            <button class="btn btn-search" type="submit" style="border-radius"><i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp; Search</button>
-        </span>
-    </div>
-</form>
 <br />
-
-<p>
-    @Html.ActionLink("Add New Product", "#")
-</p>
+<h4>Available Products</h4>
 <table class="table">
     <tr>
         <th>
@@ -68,9 +52,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
-            <td>
-                @Html.ActionLink("Delete", "#", new { /* id=item.PrimaryKey */ })
-            </td>
+            
         </tr>
     }
 

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSCDAL", "OSCDAL\OSCDAL.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShoppingCart_WebApp_MVC", "OnlineShoppingCart_WebApp_MVC\OnlineShoppingCart_WebApp_MVC.csproj", "{77A814FD-2BAF-4C48-BFC5-776CA68588AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShoppingCart_WebApp_MVCTests1", "OnlineShoppingCart_WebApp_MVCTests1\OnlineShoppingCart_WebApp_MVCTests1.csproj", "{20DC451B-6302-4F59-9981-F20DBA41D77A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{77A814FD-2BAF-4C48-BFC5-776CA68588AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77A814FD-2BAF-4C48-BFC5-776CA68588AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77A814FD-2BAF-4C48-BFC5-776CA68588AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20DC451B-6302-4F59-9981-F20DBA41D77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DC451B-6302-4F59-9981-F20DBA41D77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DC451B-6302-4F59-9981-F20DBA41D77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DC451B-6302-4F59-9981-F20DBA41D77A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

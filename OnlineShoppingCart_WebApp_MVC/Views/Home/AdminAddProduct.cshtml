@@ -1,11 +1,10 @@
 ﻿@model OnlineShoppingCart_WebApp_MVC.Models.AdminAddProduct
 
 @{
-    ViewBag.Title = "AdminAddProduct";
+    ViewBag.Title = "AddProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>AdminAddProduct</h2>
 
 
 @using (Html.BeginForm()) 
@@ -13,7 +12,8 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>AdminAddProduct</h4>
+        <br />
+        <h4>Add Product</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -64,9 +64,7 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

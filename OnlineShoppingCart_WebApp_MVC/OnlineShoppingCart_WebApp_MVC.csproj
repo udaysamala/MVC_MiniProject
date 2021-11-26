@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Models\AddCart.cs" />
     <Compile Include="Models\AdminAddProduct.cs" />
+    <Compile Include="Models\AdminDeleteProduct.cs" />
     <Compile Include="Models\AdminLoginM.cs" />
     <Compile Include="Models\AdmiViewProducts.cs" />
     <Compile Include="Models\CCLogin.cs" />
@@ -186,6 +187,7 @@
     <Content Include="Views\Home\UserSearchedProduct.cshtml" />
     <Content Include="Views\Home\AdminSearchProduct.cshtml" />
     <Content Include="Views\Home\AdminSearchedProduct.cshtml" />
+    <Content Include="Views\Home\AdminDeleteProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
