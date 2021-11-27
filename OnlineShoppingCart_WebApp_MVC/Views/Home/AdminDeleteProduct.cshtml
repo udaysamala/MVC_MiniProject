@@ -6,13 +6,13 @@
 }
 
 
+<h1>@ViewBag.alert</h1>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AdminDeleteProduct","Home")) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <br />
         <h4>DeleteProduct</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -31,6 +31,7 @@
         </div>
     </div>
 }
+
 
 
 @section Scripts {

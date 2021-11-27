@@ -7,7 +7,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Models
 {
     public class AdminAddProduct
     {
-        
+        public string ProductId { get; set; }
         public string Name { get; set; }
         public string Summary { get; set; }
         public string Price { get; set; }

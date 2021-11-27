@@ -29,9 +29,9 @@
                         <div class="dropdown">
                             <button class="dropbtn"><span class="glyphicon glyphicon-user"></span>Hello, Sign in</button>
                             <div class="dropdown-content">
-                                <a href="Home/AdminLogin">Admin</a>
-                                <a href="Home/Login">Users</a>
-                               
+                                @Html.ActionLink("Admin", "AdminLogin", "Home")
+                                @Html.ActionLink("Users", "Login", "Home")
+
                             </div>
                         </div>
                     </li>

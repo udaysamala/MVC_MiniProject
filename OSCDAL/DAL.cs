@@ -92,7 +92,7 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-                string query = $"insert into dbo.product(Name,summary,price,discount,quantity) values('{p.Name}','{p.Summary}','{p.Price}','{p.Discount}','{p.Quantity}')";
+                string query = $"insert into dbo.product(id,Name,summary,price,discount,quantity) values('{p.ProductId}','{p.Name}','{p.Summary}','{p.Price}','{p.Discount}','{p.Quantity}')";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
                 int insertedRows = cmd.ExecuteNonQuery();
@@ -189,12 +189,12 @@ namespace OSCDAL
             {
                 sqlConObj.ConnectionString = ConfigurationManager.
                     ConnectionStrings["OnlineShoppingCart"].ConnectionString;
-                string query = $"DELETE FROM product WHERE Id={p.Deleteproduct} or name={p.Deleteproduct};";
+                string query = $"DELETE FROM product WHERE Id={p.Deleteproduct};";
                 SqlCommand cmd = new SqlCommand(query, sqlConObj);
                 sqlConObj.Open();
-                int insertedRows = cmd.ExecuteNonQuery();
+                int DeleteRows = cmd.ExecuteNonQuery();
                 sqlConObj.Close();
-                if (insertedRows >= 1)
+                if (DeleteRows >= 1)
                 {
                     return 1;
                 }
@@ -354,7 +354,7 @@ namespace OSCDAL
                 sqlDataReaderObj = cmd.ExecuteReader();
                 List<Product> lstPro = new List<Product>();
 
-                Product newepartObj = new Product();
+                //Product newepartObj = new Product();
 
                 while (sqlDataReaderObj.Read())
                 {

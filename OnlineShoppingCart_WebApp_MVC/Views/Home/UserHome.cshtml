@@ -6,6 +6,7 @@
 }
 <br />
 <h4>UserHome</h4>
+<h1>@ViewBag.alert</h1>
 
 
 <table class="table">
@@ -32,31 +33,31 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    
-                        @Html.DisplayFor(modelItem => item.Price, new {@value=item.Price,@id="p1"})
-                    
+
+                    @Html.DisplayFor(modelItem => item.Price, new { @value = item.Price, @id = "p1" })
+
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
-               
+
                 <td>
-                    <input type="number" id="req" value= ,name="reqquantity" placeholder="Enter Number">
+                    <input type="number" id="req" value=,name ="reqquantity" placeholder="Enter Number">
                 </td>
                 <td>
-                   
+
                     <input type="text" id="value1" readonly>
 
                 </td>
                 <td>
                     @Html.TextBox("Add to cart", "Add to cart", new { type = "submit" })
-                    
+
                 </td>
             </tr>
-            }
         }
+    }
 
-    </table>
+</table>
 <script>
     var x = document.getElementById("p1").value;
     var z = document.getElementById("value1")

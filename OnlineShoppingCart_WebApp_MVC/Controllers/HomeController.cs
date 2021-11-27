@@ -33,10 +33,11 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 return View(lstOfFinalProduct);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
             }
         }
 
@@ -80,15 +81,17 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 }
                 else
                 {
+                    ViewBag.alert = "Incorrect Login Credentials / No Data-Click On SignUp";
 
-                    return View("Error");
+                    return View();
 
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
 
             }
 
@@ -123,14 +126,16 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 else
                 {
 
-                    return View("Error");
+                    ViewBag.alert = "Registration Unsuccess! Please Try Again";
+                    return View();
 
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
 
             }
 
@@ -157,10 +162,11 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 return View(lstOfFinalProduct);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
             }
         }
         public ActionResult UserCart()
@@ -182,10 +188,11 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 return View(finallist);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                ViewBag.alert = "An Exception Occurred";
+                return View();
 
-                throw ex;
             }
 
         }
@@ -229,9 +236,10 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
 
             }
 
@@ -254,10 +262,11 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 return View();
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
             }
 
         }
@@ -289,14 +298,17 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 else
                 {
 
-                    return View("Error");
+                    ViewBag.alert = "Incorrect Login Credentials";
+
+                    return View();
 
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
 
             }
 
@@ -325,10 +337,11 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 return View(finallist);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
             }
 
         }
@@ -343,7 +356,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             {
                 Product p = new Product()
                 {
-                    
+                    ProductId=ap.ProductId,
                     Name=ap.Name,
                     Price = ap.Price,
                     Discount=ap.Discount,
@@ -353,18 +366,22 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 int result= bl.InsertintoProductTable(p);
                 if (result == 1)
                 {
-                    return View("AdminViewProduct");
+                    ViewBag.alert = "Product Inserted Successfully";
+
+                    return View();
                 }
                 else
                 {
-                    return View("Error");
+                    ViewBag.alert = "Product Not-Inserted ! Try Again";
+                    return View();
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
+                
             }
 
         }
@@ -404,14 +421,15 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 else
                 {
                     ViewBag.alert = "Sorry, the item is out of stock..";
-                    return View();
+                    return RedirectToAction("AdminSearchProduct");
 
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                ViewBag.alert = "An Exception Occurred";
+                return View();
 
             }
 
@@ -422,7 +440,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
 
         }
         [HttpPost]
-        public ActionResult DeleteProduct(AdminDeleteProduct dp)
+        public ActionResult AdminDeleteProduct(AdminDeleteProduct dp)
         {
             try
             {
@@ -435,18 +453,21 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                 int result = bl.DeleteProductItem(p);
                 if (result == 1)
                 {
-                    return View("AdminViewProduct");
+                    ViewBag.alert = "Item Deleted Successfully";
+                    return View();
                 }
                 else
                 {
-                    return View("Error");
+                    ViewBag.alert = "Sorry, the item was Not Deleted..";
+                    return View();
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-
-                throw ex;
+               
+                ViewBag.alert = "An Exception Occurred";
+                return View();
             }
 
         }

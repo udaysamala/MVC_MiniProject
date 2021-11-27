@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
-<h4>AdminSearchProduct</h4>
-
+<h4>SearchProduct</h4>
+<h1>@ViewBag.alert</h1>
 
 <form action="AdminSearchedProduct" name="Form" method="post" onsubmit="return validate()">
     <div class="col-sm-5" style="text-align:right;">
@@ -23,6 +23,7 @@
     </div>
     <br />
 </form>
+<h1>@ViewBag.alert</h1>
 <script>
     function validate() {
 

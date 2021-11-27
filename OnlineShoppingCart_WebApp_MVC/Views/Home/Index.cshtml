@@ -6,6 +6,7 @@
 }
 
 <h2>Available Products</h2>
+<h1>@ViewBag.alert</h1>
 
 
 <table class="table">
@@ -25,23 +26,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            <input type="number"  name="reqquantity" placeholder= "Enter Number">
-            @Html.ActionLink("Add to cart ", "Login")
-           
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                <input type="number" name="reqquantity" placeholder="Enter Number">
+                @Html.ActionLink("Add to cart ", "Login")
+
+            </td>
+        </tr>
+    }
+
 
 </table>
