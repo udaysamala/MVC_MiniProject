@@ -66,7 +66,6 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             {
                 Customer Cdto = new Customer()
                 {
-                   
                 Username = loginmodel.Username,
                 Password = loginmodel.Password,
 
@@ -182,7 +181,10 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
                     {
                         Productname=a.Productname,
                         Price = a.Price,
-                        Quantity = a.Quantity
+                        Quantity = a.Quantity,
+                        TotalPrice=a.TotalPrice,
+                        TotalBillPrice=a.TotalBillPrice
+                       
                     });
                 }
                 return View(finallist);
@@ -244,22 +246,45 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
             }
 
         }
-        public ActionResult UserAddCart(AddCart cm)
+        public ActionResult UserAddCart()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UserAddCart(AddCartModel cm)
         {
             try
             {
-                ADDCart c = new ADDCart()
-                {
-                    Username=cm.Username,
-                    Productid=cm.Productid,
-                    Productname=cm.Productname,
-                    Price=cm.Price,
-                    Quantity=cm.Quantity,
-                    Check=cm.Check,
+                UserName cn = new UserName();
+               
+                    ADDCart c = new ADDCart()
+                    {
+                        Username = cn.Username,
 
-                };
+                        Check = cm.Productname,
 
-                return View();
+                        Quantity = cm.Quantity,
+
+                    };
+                    int result = bl.InsertintoCart(c);
+                    if (result == 1)
+                    {
+                        ViewBag.alert = "Product Inserted Successfully";
+
+                        return View();
+                    }
+                    if (result == -1)
+                    {
+                        ViewBag.alert = "Insufficient Product Quantity! Required Quantity more ";
+
+                        return View();
+
+                    }
+                    else
+                    {
+                        ViewBag.alert = "Product Not-Inserted ! Try Again";
+                        return View();
+                    }
 
             }
             catch (Exception )
@@ -267,6 +292,86 @@ namespace OnlineShoppingCart_WebApp_MVC.Controllers
 
                 ViewBag.alert = "An Exception Occurred";
                 return View();
+            }
+
+        }
+        public ActionResult UserDeleteCart()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UserDeleteCart(UserDeleteProductCartModel dp)
+        {
+            try
+            {
+               ADDCart ac = new ADDCart()
+                {
+
+                    Deleteproduct = dp.Deleteproduct,
+
+                };
+                int result = bl.UserDeleteProductItemFromCart(ac);
+                if (result == 1)
+                {
+                    ViewBag.alert = "Item Removed Successfully";
+                    return View();
+                }
+                else
+                {
+                    ViewBag.alert = "Sorry, the item was Not Removed..";
+                    return View();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                ViewBag.alert = "An Exception Occurred";
+                return View();
+            }
+
+        }
+        public ActionResult Order()
+        {
+            int result =bl.Orders();
+            if (result == 1)
+            {
+                ViewBag.alert = "Thanks for Shopping! Your Order was Placed";
+                return RedirectToAction("UserMyOders");
+            }
+            else
+            {
+                ViewBag.alert = "Your Order was Not-Placed,Plaese Try Again!";
+                return RedirectToAction("UserCart");
+            }
+            
+            
+        }
+        public ActionResult UserMyOders()
+        {
+            try
+            {
+
+                List<Orders> lst = bl.FetchUserOrders();
+                List<UserOders> finallist = new List<UserOders>();
+                foreach (Orders o in lst)
+                {
+                    finallist.Add(new UserOders()
+                    {
+                        OrderId=o.Orderid,
+                        ProductName=o.Productname,
+                        Qunatity=o.Quantity,
+
+                    });
+                }
+                return View(finallist);
+
+            }
+            catch (Exception)
+            {
+                ViewBag.alert = "An Exception Occurred";
+                return View();
+
             }
 
         }

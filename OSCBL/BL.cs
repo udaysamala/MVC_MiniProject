@@ -67,12 +67,12 @@ namespace OSCBL
                 throw ex;
             }
         }
-        public int InsertintoCart(ADDCart newObj4)
+        public int InsertintoCart(ADDCart newObj)
         {
             try
             {
 
-                int result = dalObj.InsertintoCart(newObj4);
+                int result = dalObj.InsertintoCart(newObj);
                 return result;
             }
             catch (Exception ex)
@@ -81,12 +81,26 @@ namespace OSCBL
                 throw ex;
             }
         }
-        public int DeleteProductItem(Product newObj2)
+        public int DeleteProductItem(Product newObj)
         {
             try
             {
 
-                int result = dalObj.DeleteItemfrmProduct(newObj2);
+                int result = dalObj.DeleteItemfrmProduct(newObj);
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public int UserDeleteProductItemFromCart(ADDCart newObj)
+        {
+            try
+            {
+
+                int result = dalObj.UserDeleteProductItemFromCart(newObj);
                 return result;
             }
             catch (Exception ex)
@@ -140,6 +154,21 @@ namespace OSCBL
             }
 
         }
+        public List<Orders> FetchUserOrders()
+        {
+            try
+            {
+
+                List<Orders> results = dalObj.FetchUserOrders();
+                return results;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
         public List<Product> UserSearchedProduct(Product p)
         {
             try
@@ -169,6 +198,20 @@ namespace OSCBL
                 throw ex;
             }
 
+        }
+        public int Orders()
+        {
+            try
+            {
+                
+                int result = dalObj.InsertIntoOrders();
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
     }

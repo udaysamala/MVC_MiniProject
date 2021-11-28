@@ -8,7 +8,8 @@ namespace OnlineShoppingCart_WebApp_MVC.Models
 {
     public class AdminDeleteProduct
     {
-        [Required]
+        [Required(ErrorMessage = "Please Enter ProductName or ID")]
+        [Display(Name = "Product Name Or ID")]
         public string Deleteproduct { get; set; }
     }
 }

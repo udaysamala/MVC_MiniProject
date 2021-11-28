@@ -124,7 +124,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AddCart.cs" />
+    <Compile Include="Models\AddCartModel.cs" />
     <Compile Include="Models\AdminAddProduct.cs" />
     <Compile Include="Models\AdminDeleteProduct.cs" />
     <Compile Include="Models\AdminLoginM.cs" />
@@ -133,6 +133,8 @@
     <Compile Include="Models\CSignup.cs" />
     <Compile Include="Models\UserCart.cs" />
     <Compile Include="Models\SearchProduct.cs" />
+    <Compile Include="Models\UserDeleteProductCartModel.cs" />
+    <Compile Include="Models\UserOders.cs" />
     <Compile Include="Models\UserViewProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -188,6 +190,9 @@
     <Content Include="Views\Home\AdminSearchProduct.cshtml" />
     <Content Include="Views\Home\AdminSearchedProduct.cshtml" />
     <Content Include="Views\Home\AdminDeleteProduct.cshtml" />
+    <Content Include="Views\Home\UserAddCart.cshtml" />
+    <Content Include="Views\Home\UserDeleteCart.cshtml" />
+    <Content Include="Views\Home\UserMyOders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

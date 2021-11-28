@@ -20,8 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Quantity)
         </th>
-        <th>@Html.DisplayName("Required Quantity")</th>
-        <th>@Html.DisplayName("Total Price")</th>
+    
     </tr>
 
     @foreach (var item in Model)
@@ -40,19 +39,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
-
-                <td>
-                    <input type="number" id="req" value=,name ="reqquantity" placeholder="Enter Number">
-                </td>
-                <td>
-
-                    <input type="text" id="value1" readonly>
-
-                </td>
-                <td>
-                    @Html.TextBox("Add to cart", "Add to cart", new { type = "submit" })
-
-                </td>
+              
             </tr>
         }
     }

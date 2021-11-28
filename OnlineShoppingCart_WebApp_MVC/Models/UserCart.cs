@@ -9,7 +9,9 @@ namespace OnlineShoppingCart_WebApp_MVC.Models
     {
      
         public string Productname { get; set; }
-        public string Quantity { get; set; }
-        public string Price { get; set; }
+        public float Quantity { get; set; }
+        public float Price { get; set; }
+        public float TotalPrice { get; set; }
+        public float TotalBillPrice { get; set; }
     }
 }

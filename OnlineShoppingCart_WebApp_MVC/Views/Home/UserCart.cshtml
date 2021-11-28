@@ -20,7 +20,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalBillPrice)
+        </th>
+
     </tr>
 
     @foreach (var item in Model)
@@ -36,11 +42,17 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.ActionLink("Add", "Edit", new { id = item.Productname }) |
-
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalBillPrice)
             </td>
         </tr>
     }
-
+ 
+            
+  
 </table>
+<a href="Order"><input type="submit" value="Proced To Order" class="btn btn-default" /></a> |
+<a href="UserAddCart"><input type="submit" value="Add More" class="btn btn-default" /></a> |
+<a href="UserDeleteCart"><input type="submit" value="Delete" class="btn btn-default" /></a>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OnlineShoppingCart_WebApp_MVC.Models.UserOders>
+
+@{
+    ViewBag.Title = "MyOders";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h4>My Oders</h4>
+<h1>@ViewBag.alert</h1>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qunatity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qunatity)
+        </td>
+        
+    </tr>
+}
+
+</table>
