@@ -8,6 +8,8 @@
 | `OSCBL` | Business Logical Layer |
 | `OSCDAL` | Data Access Layer |
 | `OSCDTO` | Data Transfer objects |
+| `OnlineShoppingCart SQL Query.sql` | Table Creation & Stored Procedure SQL Queries |
+| `OnlineShoppingCart-DataBaseBackUp.bak` | DataBase BackUp File |
 
 
 ## Contributors List and Summary:
