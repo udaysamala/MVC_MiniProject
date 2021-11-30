@@ -11,7 +11,10 @@
 | `OnlineShoppingCart SQL Query.sql` | Table Creation & Stored Procedure SQL Queries |
 | `OnlineShoppingCart-DataBaseBackUp.bak` | DataBase BackUp File |
 
+## MiniProject-Working Video: 
+Watch Offline : https://github.com/samalaudaykumar/MVC_MiniProject/blob/main/MiniProjectWorkingVideo.mp4
 
+Watch Online : https://github.com/samalaudaykumar/MVC_MiniProject/issues/1
 ## Contributors List and Summary:
 
 <table>
