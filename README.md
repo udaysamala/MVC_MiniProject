@@ -14,7 +14,7 @@
 ## MiniProject-Working Video: 
 Watch Offline : https://github.com/samalaudaykumar/MVC_MiniProject/blob/main/MiniProjectWorkingVideo.mp4
 
-Watch Online : https://www.awesomescreenshot.com/video/6216780?key=df41218fedbaf27aaf4fdfad1ce8a46e
+Watch Online : https://github.com/samalaudaykumar/MVC_MiniProject/issues/1
 ## Contributors List and Summary:
 
 <table>
