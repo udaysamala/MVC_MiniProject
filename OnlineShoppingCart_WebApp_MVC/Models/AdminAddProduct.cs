@@ -9,7 +9,7 @@ namespace OnlineShoppingCart_WebApp_MVC.Models
     public class AdminAddProduct
     {
         [Required]
-        [Display(Name = "Product Name")]
+        [Display(Name = "Product ID")]
         public string ProductId { get; set; }
         [Required]
         public string Name { get; set; }
